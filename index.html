@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido do ney pra grazi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            margin-top: 100px;
+            overflow: hidden; /* Impede que a tela role com o botão */
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 8px;
+            margin: 20px;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        #sim {
+            background-color: #28a745;
+            color: white;
+        }
+
+        #sim:hover {
+            background-color: #218838;
+        }
+
+        #nao {
+            background-color: #dc3545;
+            color: white;
+            position: absolute;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            button {
+                font-size: 1rem;
+                padding: 12px 20px;
+            }
+        }
+
+        #imagem {
+            display: none;
+            margin-top: 20px;
+            width: 300px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>MIM DA UMA CAMISA DO NEY? 🥰</h1>
+    <button id="sim">Sim</button>
+    <button id="nao">Não</button>
+    
+    <img id="imagem" src="/imagem/eu.jpeg" alt="Imagem do pedido">
+
+    <script>
+        const btnNao = document.getElementById('nao');
+        const btnSim = document.getElementById('sim');
+        const imagem = document.getElementById('imagem');
+
+        // Função para mover o botão "Não"
+        function moverBotao() {
+            const larguraTela = window.innerWidth;
+            const alturaTela = window.innerHeight;
+            const novaPosX = Math.random() * (larguraTela - btnNao.offsetWidth);
+            const novaPosY = Math.random() * (alturaTela - btnNao.offsetHeight);
+
+            btnNao.style.left = novaPosX + 'px';
+            btnNao.style.top = novaPosY + 'px';
+        }
+
+        // Evento para desktops (mouseover)
+        btnNao.addEventListener('mouseover', moverBotao);
+
+        // Evento para dispositivos móveis (touchstart)
+        btnNao.addEventListener('touchstart', moverBotao);
+
+        // Função para exibir a imagem quando clicar em "Sim"
+        btnSim.addEventListener('click', function() {
+            imagem.style.display = 'block';
+        });
+    </script>
+    
+</body>
+</html>
